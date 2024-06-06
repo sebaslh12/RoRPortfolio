@@ -1,24 +1,12 @@
-# README
+# RoR Course
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Files
+- `schema.rb`: Contains the state of the database, existing tables, their properties, and types.
 
-Things you may want to cover:
+# Commands
+- `rails s`: Start the serve, alternative to `bin/rails serve`
+- `rails:db migrate`: Apply db migrations
+## Generators
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `rails g`
+   - `rails g scaffold app_name property:type`: A scaffold is a set of automatically generated files which forms the basic structure of a Rails project.
