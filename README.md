@@ -12,6 +12,7 @@ A controller is the way to communicate the model, the view, and the routing syst
 # Commands
 - `rails s`: Start the serve, alternative to `bin/rails serve`
 - `rails:db migrate`: Apply db migrations
+- `rails routes --expanded`: Shows all the available routes, the `--expanded` flag formats the results into a table
 ## Generators
 
 - `rails g`
