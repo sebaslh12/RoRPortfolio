@@ -15,6 +15,7 @@ A controller is the way to communicate the model, the view, and the routing syst
 - `rails c`: Open ruby console, gives access to db commands with `ActiveRecord`
 - `rails:db migrate`: Apply db migrations
 - `rails routes --expanded`: Shows all the available routes, the `--expanded` flag formats the results into a table
+- `rails db:setup`: Creates the db, loads the schema and seeds the database from `
 
 ## Generators
 
