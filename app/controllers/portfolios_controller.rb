@@ -1,8 +1,11 @@
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio_item, only: %i[edit update]
+  before_action :set_portfolio_item, only: %i[show edit update]
 
   def index
     @portfolio_items = Portfolio.all
+  end
+
+  def show
   end
 
   def new
