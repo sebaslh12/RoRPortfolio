@@ -25,3 +25,17 @@ A controller is the way to communicate the model, the view, and the routing syst
 - `rails g scaffold app_name property:type`: A scaffold is a set of automatically generated files which forms the basic structure of a Rails project.
 
 - `rails g resource name property:type`: A light version of the scaffold generator, it adds the migration, controller, and a view folder. All of those are empty or with the bare minimum to make it functional
+
+## Customize a generator
+
+Generators can be changed as pleased, to remove files from the generation process, use templates, change render engine or the test framework, use custom generators, or even use third party generators. This example sets the generators default behavior to remove the javascript, css files and set the test framework to `rspec`.
+
+These change needs to be done inside the `config/application.rb` file
+```ruby
+config.generators do |g|
+  g.test_framework :rspec
+  g.stylesheets false
+  g.javascripts false
+  g.helper false
+end
+```
