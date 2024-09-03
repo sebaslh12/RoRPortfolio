@@ -40,3 +40,9 @@ config.generators do |g|
   g.helper false
 end
 ```
+## Routes
+- `resources :portfolios, except: [:show]`, resources receives a param called except to exclude an array of routes that will not be added automatically
+- `get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'`:
+  - `to`: points to the controller of the route
+  - `as`: sets the route prefix, meaning that the route will be available in the view as `<prefix_name>_path`
+
