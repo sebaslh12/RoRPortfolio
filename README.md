@@ -28,8 +28,11 @@ A controller is the way to communicate the model, the view, and the routing syst
 - `rails g resource name property:type`: A light version of the scaffold generator, it adds the migration, controller, and a view folder. All of those are empty or with the bare minimum to make it functional
 
 - `rails g migration Migration name prop1:type1 prop2:type2 ... propN:typeN`: The migration name tells ruby what the migration is going to be about, add a column to an existing table or adding a new table:
+
   - `rails generate migration AddEmailToUsers email:string`: this adds the email column to the already existing users
   - `rails generate migration CreateProducts name:string description:text`: this creates the products table with a name and a description
+
+- `rails g migration add_model1_reference_to_model2 model1:references`: generates a migration that adds a foreign key (reference) between the model1 and the model2 (adds the model1 id to the model2 schema)
 
 ## Customize a generator
 
