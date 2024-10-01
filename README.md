@@ -36,6 +36,7 @@ A controller is the way to communicate the model, the view, and the routing syst
 Generators can be changed as pleased, to remove files from the generation process, use templates, change render engine or the test framework, use custom generators, or even use third party generators. This example sets the generators default behavior to remove the javascript, css files and set the test framework to `rspec`.
 
 These change needs to be done inside the `config/application.rb` file
+
 ```ruby
 config.generators do |g|
   g.test_framework :rspec
@@ -44,9 +45,13 @@ config.generators do |g|
   g.helper false
 end
 ```
-## Routes
-- `resources :portfolios, except: [:show]`, resources receives a param called except to exclude an array of routes that will not be added automatically
-- `get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'`:
-  - `to`: points to the controller of the route
-  - `as`: sets the route prefix, meaning that the route will be available in the view as `<prefix_name>_path`
 
+## Routes
+
+- `resources :portfolios, except: [:show]`, resources receives a param called except to exclude an array of routes that will not be added automatically.
+- `get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'`:
+  - `to`: points to the controller of the route.
+  - `as`: sets the route prefix, meaning that the route will be available in the view as `<prefix_name>_path`.
+  - Custom route path: `get 'custom_path' to: 'resource_name#controller'`.
+  - Dynamic Route: `get 'query/:dynamic_portion', to: 'resource#controller'`: All that is after a `:` will be treated as a dynamic portion of the route and is saved into the params object. There can be as many dynamic portions as we need.
+  - WildCard Route: `get 'resource_name/*missing', to: 'resource_name#controller'`: Should always be last otherwise it will overlap over the other routes.
