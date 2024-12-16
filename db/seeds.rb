@@ -2,6 +2,7 @@ BLOG_SEED = 10
 SKILL_SEED = 5
 PORTFOLIO_SEED = 9
 TOPIC_SEED = 3
+TECHNOLOGY_SEED = 3
 
 TOPIC_SEED.times do |itTopic|
     Topic.create!(title:  "Topic #{itTopic}")
@@ -48,3 +49,13 @@ Portfolio.create!(
 
 
 puts "#{PORTFOLIO_SEED} portfolio items created"
+
+
+TECHNOLOGY_SEED.times do |itTechnology|
+  Portfolio.last.technologies.create!(
+    name: "Tech Name #{itTechnology}",
+    portfolio_id: Portfolio.last.id
+  )
+end
+
+puts "#{TECHNOLOGY_SEED} technology items created"
