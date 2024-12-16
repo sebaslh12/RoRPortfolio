@@ -9,6 +9,23 @@
 A controller is the way to communicate the model, the view, and the routing system
 `before_action`: specifies a method that is going to be run on each of the specified actions `before_action :set_blog, only: %i[ show edit update destroy ]`
 
+## Custom Scopes
+Is best practice among Ruby on Rails users, as it allows all the model logic within the model while keeping the controller free of that model related logic. There are two ways to create a custom scope:
+
+### Lambda Function
+Within the model class you can define a custom scope using the `scope` keyword:
+```ruby
+  scope :ruby_on_rails_portfolio_items, -> { where(subtitle:'Ruby on Rails') }
+```
+
+### Class Method
+
+```ruby
+def self.angular
+  where(subtitle: 'Angular')
+end
+```
+
 # Commands
 
 - `rails s`: Start the server, alternative to `bin/rails serve`
