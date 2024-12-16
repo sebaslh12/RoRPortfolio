@@ -72,6 +72,27 @@ def self.angular
 end
 ```
 
+## Model Concerns
+
+In Ruby on Rails, Concerns are a way to modularize and organize code, making it more maintainable and reusable. They allow you to extract common functionality from models, controllers, or other parts of your application into separate modules.
+
+```ruby
+module Placeholder
+  extend ActiveSupport::Concern
+
+  def self.image_generator(height:, width:)
+    "https://via.placeholder.com/#{height}x#{width}"
+  end
+end
+```
+
+To use the module within the model or controller it has to be included:
+
+```ruby
+class Skill < ApplicationRecord
+  include Placeholder
+```
+
 # Commands
 
 - `rails s`: Start the server, alternative to `bin/rails serve`
