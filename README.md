@@ -3,17 +3,63 @@
 # Files
 
 - `schema.rb`: Contains the state of the database, existing tables, their properties, and types.
+- `routes.rb`: Contains all the project routes and the controller#view the point to.
 
 # Controllers
 
 A controller is the way to communicate the model, the view, and the routing system
 `before_action`: specifies a method that is going to be run on each of the specified actions `before_action :set_blog, only: %i[ show edit update destroy ]`
 
+# Models
+
+## Default Values
+
+### Using Migrations
+
+You can set default values directly in the database via migrations.
+
+```ruby
+class AddPostStatusToBlogs < ActiveRecord::Migration[7.1]
+  def change
+    add_column :blogs, :status, :integer, default: 0
+  end
+end
+```
+
+### Using Active Record after_initialize callback
+
+The `after_initialize` callback is invoked after a model is instantiated, allowing you to set default values.
+
+```ruby
+class User < ApplicationRecord
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.name ||= "First Last"
+  end
+end
+```
+
+This same approach can be used with the `before_validation` callback, default values will be applied before the model is checked.
+
+### Use Rails Attributes API
+
+The Rails Attributes API allows you to define default values directly in the model.
+
+```ruby
+class User < ApplicationRecord
+  attribute :name, :string, default: "First Last"
+end
+```
+
 ## Custom Scopes
+
 Is best practice among Ruby on Rails users, as it allows all the model logic within the model while keeping the controller free of that model related logic. There are two ways to create a custom scope:
 
 ### Lambda Function
+
 Within the model class you can define a custom scope using the `scope` keyword:
+
 ```ruby
   scope :ruby_on_rails_portfolio_items, -> { where(subtitle:'Ruby on Rails') }
 ```
