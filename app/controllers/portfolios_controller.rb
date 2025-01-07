@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  layout 'portfolios'
   before_action :set_portfolio_item, only: %i[show edit update destroy]
 
   def index
