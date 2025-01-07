@@ -4,6 +4,7 @@
 
 - `schema.rb`: Contains the state of the database, existing tables, their properties, and types.
 - `routes.rb`: Contains all the project routes and the controller#view the point to.
+- `_nav.html.erb`: files starting with an underscore are considered partials, is a must when creating them.
 
 # Controllers
 
