@@ -38,5 +38,9 @@ module DevcampPortfolio
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Silence deprecation warnings
+    config.sass.quiet_deps = true
+    config.sass.silence_deprecations = ['import']
   end
 end
