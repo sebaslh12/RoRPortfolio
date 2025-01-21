@@ -1,19 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<div class="col-sm-8 blog-main">
 
-<h1>Blogs</h1>
+    <%= render @blogs %>
 
-<table id="blogs">
-  <thead>
-    <th>Title</th>
-    <th>Date</th>
-    <th>Body</th>
-    <th>Status</th>
-    <th colspan="4"></th>
-  </thead>
+  <nav class="blog-pagination">
+    <a class="btn btn-outline-primary" href="#">Older</a>
+    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+  </nav>
 
-  <tbody>
-    <%= render @blogs%>
-  </tbody>
-</table>
-
-<%= link_to "New blog", new_blog_path if logged_in?(:site_admin) %>
+</div>
